@@ -45,3 +45,21 @@ class Player(object) :
     @cards.setter
     def cards(self, card) :
         self.__cards.append(card)
+
+if __name__ == "__main__":
+    deck = Deck()
+
+    print(f'[Current Deck]\n{deck.mycardset}')
+    print()
+    shuffled_deck = deck.shuffleDeck()
+    print(f'[Shuffled Deck]\n{shuffled_deck.mycardset}')
+    print()
+
+    player1 = Player("JH")
+    player2 = Player("CY")
+
+    for _ in range(4) :
+        player1.cards = shuffled_deck.popCard()
+        player2.cards = shuffled_deck.popCard()
+    print(player1)
+    print(player2)
